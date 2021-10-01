@@ -43,8 +43,9 @@ h1 {
 }
 
 input {
-  font-family : inherit;
-  font-size   : 100%;
+  font-family: inherit;
+  font-size: 100%;
+  letter-spacing: 1px;
 }
 
 /* top ================================ */
@@ -240,7 +241,7 @@ header {
 }
 
 .item-menu form input {
-  font-size: 16px;
+  font-size: 14px;
   color: #bac6d3;
   cursor: pointer;
   -webkit-appearance: none;
@@ -259,9 +260,10 @@ header {
 
 .item-menu a {
   width: 60px;
-  font-size: 16px;
+  font-size: 14px;
   color: #bac6d3;
   text-align: center;
+  line-height: 28px;
 }
 
 .item-menu a:hover {

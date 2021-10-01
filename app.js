@@ -48,7 +48,7 @@ app.get('/index', (req, res) => {
   );
 });
 
-// route ke new.ejs
+// merender new.ejs
 app.get('/new', (req, res) => {
   res.render('new.ejs');
 });
@@ -62,6 +62,38 @@ app.post('/create', (req, res) => {
       res.redirect('/index');
     }
   );
+});
+
+// menghapus data di database
+app.post('/delete/:id', (req, res) => {
+  connection.query(
+    'DELETE FROM items WHERE id = ?',
+    [req.params.id],
+    (error, results) => {
+      res.redirect('/index');
+    }
+  );
+});
+
+// memilih item yang akan diedit
+app.get('/edit/:id', (req, res) => {
+  connection.query(
+    'SELECT * FROM items WHERE id = ?',
+    [req.params.id],
+    (error, results) => {
+      res.render('edit.ejs', {item: results[0]});
+    }
+  );
+});
+
+// memperbarui item yang dipilih
+app.post('/update/:id', (req, res) => {
+  connection.query(
+    'UPDATE items SET name = ? WHERE id = ?',
+    [req.body.itemName, req.params.id],
+    (error, results) => {
+      res.redirect('/index');
+    });
 });
 
 app.listen(3000);
