@@ -1,2 +1,2 @@
-# Node.js preview on local environment (windows)
-# I actually learn how to create an API
+# Node.js API
+# created an API with add, edit, and delete function using express framework and mysql database
